@@ -5,18 +5,22 @@ public class Cliente {
     private String nome;
     private String CPF;
     private String telefone;
-    private String endereço;
+    private String endereco;
+    private String bairro;
+    private String numero;
 
     public Cliente() {
     }
 
-    public Cliente(String nome, String CPF, String telefone, String endereço) {
+    public Cliente(String nome, String CPF, String telefone, String endereco, String bairro, String numero) {
         this.nome = nome;
         this.CPF = CPF;
         this.telefone = telefone;
-        this.endereço = endereço;
+        this.endereco = endereco;
+        this.bairro = bairro;
+        this.numero = numero;
     }
-
+    
     public String getNome() {
         return nome;
     }
@@ -41,11 +45,27 @@ public class Cliente {
         this.telefone = telefone;
     }
 
-    public String getEndereço() {
-        return endereço;
+    public String getEndereco() {
+        return endereco;
     }
 
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }  
 }
