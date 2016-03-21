@@ -3,7 +3,6 @@ package entity;
 public class Cliente {
 
     private String nome;
-    private String CPF;
     private String telefone;
     private String endereco;
     private String bairro;
@@ -12,9 +11,8 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String nome, String CPF, String telefone, String endereco, String bairro, String numero) {
+    public Cliente(String nome, String telefone, String endereco, String bairro, String numero) {
         this.nome = nome;
-        this.CPF = CPF;
         this.telefone = telefone;
         this.endereco = endereco;
         this.bairro = bairro;
@@ -27,14 +25,6 @@ public class Cliente {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getCPF() {
-        return CPF;
-    }
-
-    public void setCPF(String CPF) {
-        this.CPF = CPF;
     }
 
     public String getTelefone() {
