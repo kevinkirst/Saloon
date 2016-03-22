@@ -4,15 +4,11 @@ body{
     text-align: center;
 }
 
-.center{
+/*=-=TABLE=-=*/
+
+.centralizarTabela{
     margin-left: auto;
     margin-right: auto;
-}
-
-h1{
-    color: darkgoldenrod;
-    font-family: Monotype Corsiva;
-    font-size: 48px;
 }
 
 table{
@@ -29,10 +25,20 @@ th{
     color:darkgoldenrod;
 }
 
+/*=-=CABECALHO=-=*/
+
+h1{
+    color: darkgoldenrod;
+    font-family: Monotype Corsiva;
+    font-size: 48px;
+}
+
 sub{
     color: whitesmoke;
     font-size: 20px;
 }
+
+/*=-=LINKS=-=*/
 
 a:link{
     color: whitesmoke;
