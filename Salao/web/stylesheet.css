@@ -1,4 +1,49 @@
-h1{
-    color: red;
+body{
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
 }
 
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    color: darkgoldenrod;
+    font-family: Monotype Corsiva;
+    font-size: 48px;
+}
+
+table{
+    width: 75%;
+    height: 50%;
+    border: 1px solid white;
+}
+
+th, td{
+    border: 1px solid white;
+    width: 25%;
+}
+th{
+    color:darkgoldenrod;
+}
+
+sub{
+    color: whitesmoke;
+    font-size: 20px;
+}
+
+a:link{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:visited{
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+a:hover{
+    color: darkgray;
+}
