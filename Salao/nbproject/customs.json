@@ -1,0 +1,11 @@
+{
+    "elements": {},
+    "attributes": {
+        "font-color": {
+            "context": "th"
+        },
+        "font-size": {
+            "context": "th"
+        }
+    }
+}
