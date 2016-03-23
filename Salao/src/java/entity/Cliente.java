@@ -4,10 +4,21 @@ public class Cliente {
 
     private String nome;
     private String telefone;
+//    private String celular; INSERIR
     private String endereco;
+//    private String email;  INSERIR
     private String bairro;
     private String numero;
 
+    //CADASTRAR FICHA TECNICA DO CLIENTE JUNTO COM O CADASTRO DA PESSOA (MESMA TELA)
+    //private String corCabelo; //NATURAL OU COSMÉTICA
+    //private String tipoCabelo; //afro, liso, asiático, ondulado
+    //private String percentualBranco;
+    //private String alergia; //sim ou não
+    //private String alisamento; //progressiva, definitiva ou N/A
+    
+    //MOSTRAR NA CONSULTA DE CLIENTE O ÚLTIMO SERVIÇO PRESTADO, ASSIM COMO A DATA
+    
     public Cliente() {
     }
 

@@ -15,14 +15,28 @@ table{
     width: 75%;
     height: 50%;
     border: 1px solid white;
+    border-collapse: collapse;
 }
 
 th, td{
     border: 1px solid white;
     width: 25%;
 }
+
 th{
     color:darkgoldenrod;
+}
+
+th a:visited{
+    color:darkgoldenrod;
+}
+
+th a:link{
+    color:darkgoldenrod;
+}
+
+th a:hover{
+    color:#7f6b00;
 }
 
 /*=-=CABECALHO=-=*/
