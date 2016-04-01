@@ -12,7 +12,7 @@
     
     <servlet>
         <servlet-name>ServletSalao</servlet-name>
-        <servlet-class>servlet.Appservlet</servlet-class>
+        <servlet-class>servlet.AppServletProduto</servlet-class>
     </servlet>
     
     <servlet-mapping>
