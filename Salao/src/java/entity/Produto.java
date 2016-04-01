@@ -1,38 +1,33 @@
 package entity;
 
+import java.util.Date;
+
 public class Produto {
 
+    private Integer id;
     private String nome;
-    private String qtde;
     private String fornecedor;
-    private String dtCompra;
-    private String valorCompra;
-    private String valorVenda;
+    private int qtde;
+    private Date dtCompra;
+    private double valorCompra;
+    private double valorVenda;
 
     //PARA CADA PRODUTO, ADICIONAR 40% AO VALOR DE COMPRA PARA O VALOR DE VENDA
     //QND A QTDE DE PRODUTOS ATINGIR 2, AVISAR QUE O ESTOQUE ESTÁ BAIXO (MIDAR A COR DA TABLE)
     //RELATORIO DE PRODUTOS VENDIDOS POR PERÍODO
-    
     public Produto() {
     }
 
-    public Produto(String nome, String qtde, String fornecedor, String dtCompra, String valorCompra, String valorVenda) {
+    public Produto(Integer id, String nome, String fornecedor, int qtde, Date dtCompra, double valorCompra, double valorVenda) {
+        this.id = id;
         this.nome = nome;
-        this.qtde = qtde;
         this.fornecedor = fornecedor;
+        this.qtde = qtde;
         this.dtCompra = dtCompra;
         this.valorCompra = valorCompra;
         this.valorVenda = valorVenda;
     }
 
-    public String getQtde() {
-        return qtde;
-    }
-
-    public void setQtde(String qtde) {
-        this.qtde = qtde;
-    }
-    
     public String getNome() {
         return nome;
     }
@@ -49,30 +44,44 @@ public class Produto {
         this.fornecedor = fornecedor;
     }
 
-    public String getDtCompra() {
+    public int getQtde() {
+        return qtde;
+    }
+
+    public void setQtde(int qtde) {
+        this.qtde = qtde;
+    }
+
+    public Date getDtCompra() {
         return dtCompra;
     }
 
-    public void setDtCompra(String dtCompra) {
+    public void setDtCompra(Date dtCompra) {
         this.dtCompra = dtCompra;
     }
 
-    public String getValorCompra() {
+    public double getValorCompra() {
         return valorCompra;
     }
 
-    public void setValorCompra(String valorCompra) {
+    public void setValorCompra(double valorCompra) {
         this.valorCompra = valorCompra;
     }
 
-    public String getValorVenda() {
+    public double getValorVenda() {
         return valorVenda;
     }
 
-    public void setValorVenda(String valorVenda) {
+    public void setValorVenda(double valorVenda) {
         this.valorVenda = valorVenda;
     }
-    
-    
-    
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
 }
