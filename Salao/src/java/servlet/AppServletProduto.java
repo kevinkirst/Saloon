@@ -31,7 +31,7 @@ public class AppServletProduto extends HttpServlet {
             req.setAttribute("lista", minhaLista);
 
             RequestDispatcher rd = req.getRequestDispatcher("listProduto.jsp");
-            rd.forward(req, resp);
+            rd.forward(req, resp);//
         }
 
         if (acao.equals("novoProduto")) {
