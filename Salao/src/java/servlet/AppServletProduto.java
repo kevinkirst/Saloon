@@ -53,12 +53,15 @@ public class AppServletProduto extends HttpServlet {
         }
         if (acao.equals("salvarProduto")) {
             String idAsString = req.getParameter("id");
-            String nome = req.getParameter("campoNome");
-            String telefone = req.getParameter("campoTelefone");
+            
             Produto produto = new Produto();
-
-            produto.setNome(nome);
-     //     produto.setTelefone(telefone);            //não utilizado, mas salvo para usar como exemplo
+            produto.setNome(req.getParameter("campoNome"));
+            produto.setFornecedor(req.getParameter("campoFornecedor"));
+            produto.setQtde(Integer.parseInt(req.getParameter("campoQuantidade")));
+//          produto.setQtde(req.getParameter("campoDtCompra"));
+            produto.setValorCompra(Double.parseDouble(req.getParameter("campoValorCompra")));
+            produto.setValorVenda(Double.parseDouble(req.getParameter("campoValorVenda")));
+            
             if (!idAsString.equals("null")) {
                 produto.setId(Integer.parseInt(idAsString));
             }
