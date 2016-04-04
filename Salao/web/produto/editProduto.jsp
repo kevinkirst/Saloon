@@ -34,6 +34,7 @@
             <input type="text" name="campoValorVenda" value="<%=p.getValorVenda()%>" />    
             <br />            
             <input type="submit" value="Submeter" />
+            <a href="../index.html">Página Inicial</a>
             </form>
     </body>
 </html>
