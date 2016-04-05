@@ -18,7 +18,7 @@
             Produto p = (Produto) request.getAttribute("produto");
         %>
         <h1></h1>
-        <form action="servlet" method="get" >
+        <form action="salao" method="get" >
             <input type="hidden" name="acao" value="salvarProduto" />
             <input type="hidden" name="id" value="<%=p.getId()%>" />
             <input type="text" name="campoNome" value="<%=p.getNome()%>" />

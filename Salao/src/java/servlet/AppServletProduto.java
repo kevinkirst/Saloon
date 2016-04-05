@@ -30,7 +30,7 @@ public class AppServletProduto extends HttpServlet {
             minhaLista = dao.getAll();
             req.setAttribute("lista", minhaLista);
 
-            RequestDispatcher rd = req.getRequestDispatcher("listProduto.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("produto/listProduto.jsp");
             rd.forward(req, resp);//
         }
 
@@ -38,7 +38,7 @@ public class AppServletProduto extends HttpServlet {
             Produto produto = new Produto();
 
             req.setAttribute("produto", produto);
-            RequestDispatcher rd = req.getRequestDispatcher("editProduto.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("produto/editProduto.jsp");
             rd.forward(req, resp);
         }
         if (acao.equals("editarProduto")) {
@@ -47,7 +47,7 @@ public class AppServletProduto extends HttpServlet {
             Produto produto = dao.getById(id);
 
             req.setAttribute("produto", produto);
-            RequestDispatcher rd = req.getRequestDispatcher("editProduto.jsp");
+            RequestDispatcher rd = req.getRequestDispatcher("produto/editProduto.jsp");
             rd.forward(req, resp);
 
         }
@@ -58,7 +58,7 @@ public class AppServletProduto extends HttpServlet {
             produto.setNome(req.getParameter("campoNome"));
             produto.setFornecedor(req.getParameter("campoFornecedor"));
             produto.setQtde(Integer.parseInt(req.getParameter("campoQuantidade")));
-//          produto.setQtde(req.getParameter("campoDtCompra"));
+            produto.setDtCompra(null);
             produto.setValorCompra(Double.parseDouble(req.getParameter("campoValorCompra")));
             produto.setValorVenda(Double.parseDouble(req.getParameter("campoValorVenda")));
             
@@ -66,9 +66,10 @@ public class AppServletProduto extends HttpServlet {
                 produto.setId(Integer.parseInt(idAsString));
             }
             ProdutoDao dao = new ProdutoDao();
+            System.out.println("nome "+ produto.getNome());
             dao.salvar(produto);
 
-            RequestDispatcher rd = req.getRequestDispatcher("servlet?acao=listar");
+            RequestDispatcher rd = req.getRequestDispatcher("salao?acao=listar");
             rd.forward(req, resp);
         }
 
@@ -78,7 +79,7 @@ public class AppServletProduto extends HttpServlet {
             Produto produto = dao.getById(idVitima);
             dao.excluir(produto);
 
-            RequestDispatcher rd = req.getRequestDispatcher("servlet?acao=listar");
+            RequestDispatcher rd = req.getRequestDispatcher("salao?acao=listar");
             rd.forward(req, resp);
         }
 

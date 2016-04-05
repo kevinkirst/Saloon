@@ -18,7 +18,7 @@ public class ProdutoDao {
             Connection conn = Conexao.getConnection();
 
             String QUERY_INSERT = "insert into produto (nome, fornecedor, quantidade, dtCompra, valorCompra, valorVenda) values (?, ?, ?, ?, ?, ?)";
-            String QUERY_UPDATE = "update Produto set nome = ?, fornecedor = ?, quantidade =?, dtCompra=?, valorCompra=?, valorVenda=? where id = ? ";
+            String QUERY_UPDATE = "update Produto set nome = ?, fornecedor = ?, quantidade =?, dtCompra=?, valorCompra=?, valorVenda=? where idproduto = ? ";
 
             if (produto.getId() == null) {
 
@@ -26,7 +26,8 @@ public class ProdutoDao {
                 stmt.setString(1, produto.getNome());
                 stmt.setString(2, produto.getFornecedor());
                 stmt.setInt(3, produto.getQtde());
-                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
+                //                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
+                stmt.setDate(4,null);
                 stmt.setDouble(5, produto.getValorCompra());
                 stmt.setDouble(6, produto.getValorVenda());
 
@@ -38,7 +39,8 @@ public class ProdutoDao {
                 stmt.setString(1, produto.getNome());
                 stmt.setString(2, produto.getFornecedor());
                 stmt.setInt(3, produto.getQtde());
-                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
+                 //                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
+                stmt.setDate(4,null);
                 stmt.setDouble(5, produto.getValorCompra());
                 stmt.setDouble(6, produto.getValorVenda());
                 stmt.setInt(7, produto.getId());
@@ -59,7 +61,7 @@ public class ProdutoDao {
 
         try {
 
-            String QUERY_DETALHE = "select * from Produto where id = ?";
+            String QUERY_DETALHE = "select * from Produto where idproduto = ?";
             PreparedStatement stmt = null;
             Connection conn = Conexao.getConnection();
 
@@ -71,7 +73,7 @@ public class ProdutoDao {
             rs = stmt.executeQuery();
 
             while (rs.next()) {
-                produto.setId(rs.getInt("id"));
+                produto.setId(rs.getInt("idproduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setFornecedor(rs.getString("fornecedor"));
                 produto.setQtde(rs.getInt("quantidade"));
@@ -106,7 +108,7 @@ public class ProdutoDao {
 
             while (rs.next()) {
                 Produto produto = new Produto();
-                produto.setId(rs.getInt("id"));
+                produto.setId(rs.getInt("idproduto"));
                 produto.setNome(rs.getString("nome"));
                 produto.setFornecedor(rs.getString("fornecedor"));
                 produto.setQtde(rs.getInt("quantidade"));
@@ -134,7 +136,7 @@ public class ProdutoDao {
             PreparedStatement stmt = null;
             Connection conn = Conexao.getConnection();
 
-            String QUERY_DELETE = "delete from produto where id = ?";
+            String QUERY_DELETE = "delete from produto where idproduto = ?";
 
             stmt = conn.prepareStatement(QUERY_DELETE);
             stmt.setInt(1, produto.getId());

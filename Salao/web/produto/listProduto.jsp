@@ -19,10 +19,12 @@
             lProduto = (List<Produto>) request.getAttribute("lista");
             for (Produto umProduto : lProduto) {
         %>
-        <%=umProduto.getNome()%> - <a href="servlet?acao=editarProduto&id=<%=umProduto.getId()%>">Editar</a> - <a href="servlet?acao=excluirProduto&id=<%=umProduto.getId()%>">Excluir</a>
+        <%=umProduto.getNome()%> - <a href="salao?acao=editarProduto&id=<%=umProduto.getId()%>">Editar</a> - <a href="salao?acao=excluirProduto&id=<%=umProduto.getId()%>">Excluir</a>
         <br />
         <%}%>
         <br />
-        <a href="servlet?acao=novoProduto"> Novo Produto </a>
+        <a href="salao?acao=novoProduto"> Novo Produto </a>
+        <% Boolean test = lProduto.isEmpty();
+            System.out.println(test); %>
     </body>
 </html>
