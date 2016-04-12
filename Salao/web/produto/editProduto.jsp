@@ -16,22 +16,23 @@
 
         <%
             Produto p = (Produto) request.getAttribute("produto");
+            
         %>
         <h1></h1>
         <form action="salao" method="get" >
             <input type="hidden" name="acao" value="salvarProduto" />
             <input type="hidden" name="id" value="<%=p.getId()%>" />
-            <input type="text" name="campoNome" value="<%=p.getNome()%>" />
+            Nome: <input type="text" name="campoNome" value="<%=p.getNome()%>" />
             <br />
-            <input type="text" name="campoFornecedor" value="<%=p.getFornecedor()%>" />    
+            Fornecedor: <input type="text" name="campoFornecedor" value="<%=p.getFornecedor()%>" />    
             <br />
-            <input type="text" name="campoQuantidade" value="<%=p.getQtde()%>" />    
+            Quantidade: <input type="text" name="campoQuantidade" value="<%=p.getQtde()%>" />    
             <br />
-            <input type="text" name="campoDtCompra" value="<%=p.getDtCompra()%>" />    
+            Data compra: <input type="text" name="campoDtCompra" value="<%=request.getAttribute("a")%>" />    
             <br />
-            <input type="text" name="campoValorCompra" value="<%=p.getValorCompra()%>" />    
+            Valor da compra: <input type="text" name="campoValorCompra" value="<%=p.getValorCompra()%>" />    
             <br />
-            <input type="text" name="campoValorVenda" value="<%=p.getValorVenda()%>" />    
+            Valor da venda: <input type="text" name="campoValorVenda" value="<%=p.getValorVenda()%>" />    
             <br />            
             <input type="submit" value="Submeter" />
             <a href="../index.html">Página Inicial</a>

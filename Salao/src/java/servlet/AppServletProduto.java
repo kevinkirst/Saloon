@@ -3,12 +3,14 @@ package servlet;
 import dao.ProdutoDao;
 import entity.Produto;
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import util.DataConversor;
 
 /**
  *
@@ -41,24 +43,30 @@ public class AppServletProduto extends HttpServlet {
             RequestDispatcher rd = req.getRequestDispatcher("produto/editProduto.jsp");
             rd.forward(req, resp);
         }
-        if (acao.equals("editarProduto")) {
+        if (acao.equals("editarProduto")) {            
+            DataConversor data = new DataConversor();
             Integer id = Integer.parseInt(req.getParameter("id"));
             ProdutoDao dao = new ProdutoDao();
             Produto produto = dao.getById(id);
-
+            Date datatest = produto.getDtCompra();
+            String a = data.UStoBRdate(datatest);
+            
+            System.out.println(produto.getDtCompra());
             req.setAttribute("produto", produto);
+            req.setAttribute("a", a);
             RequestDispatcher rd = req.getRequestDispatcher("produto/editProduto.jsp");
             rd.forward(req, resp);
 
         }
         if (acao.equals("salvarProduto")) {
+            DataConversor data = new DataConversor();
             String idAsString = req.getParameter("id");
             
             Produto produto = new Produto();
             produto.setNome(req.getParameter("campoNome"));
             produto.setFornecedor(req.getParameter("campoFornecedor"));
             produto.setQtde(Integer.parseInt(req.getParameter("campoQuantidade")));
-            produto.setDtCompra(null);
+            produto.setDtCompra(data.formatoData(req.getParameter("campoDtCompra")));
             produto.setValorCompra(Double.parseDouble(req.getParameter("campoValorCompra")));
             produto.setValorVenda(Double.parseDouble(req.getParameter("campoValorVenda")));
             
@@ -84,5 +92,7 @@ public class AppServletProduto extends HttpServlet {
         }
 
     }
+    
+     
 
 }

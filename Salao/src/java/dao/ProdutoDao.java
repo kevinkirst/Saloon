@@ -26,8 +26,8 @@ public class ProdutoDao {
                 stmt.setString(1, produto.getNome());
                 stmt.setString(2, produto.getFornecedor());
                 stmt.setInt(3, produto.getQtde());
-                //                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
-                stmt.setDate(4,null);
+                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
+//                stmt.setDate(4, null);
                 stmt.setDouble(5, produto.getValorCompra());
                 stmt.setDouble(6, produto.getValorVenda());
 
@@ -39,8 +39,7 @@ public class ProdutoDao {
                 stmt.setString(1, produto.getNome());
                 stmt.setString(2, produto.getFornecedor());
                 stmt.setInt(3, produto.getQtde());
-                 //                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
-                stmt.setDate(4,null);
+                stmt.setDate(4, new java.sql.Date(produto.getDtCompra().getTime()));
                 stmt.setDouble(5, produto.getValorCompra());
                 stmt.setDouble(6, produto.getValorVenda());
                 stmt.setInt(7, produto.getId());
