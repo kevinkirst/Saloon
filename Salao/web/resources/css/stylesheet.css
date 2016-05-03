@@ -1,0 +1,20 @@
+.ui-layout-north {
+    z-index:20 !important;
+    overflow:visible !important;;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+    overflow:visible !important;
+}
+
+.ui-widget, .ui-widget .ui-widget {
+    font-size: 1em !important;
+}
+
+.test{    
+    text-align: center;
+    margin-top: 10%;    
+}
+.botao {
+        text-align:center;
+}

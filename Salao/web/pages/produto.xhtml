@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/template/model.xhtml">
+
+    <ui:define name="menu">
+        <ui:include src="/pages/menu.xhtml"/>        
+    </ui:define>
+
+    <ui:define name="conteudo">
+        <h:form id="formTbProduto">
+            <p:dataTable id="tbProduto" emptyMessage="Nenhum produto encontrado." 
+                         value="#{MBProduto.produtoList}" 
+                         var="produto"                     
+                         paginator="true"
+                         rows="10"
+                         selectionMode="single"
+                         selection="#{MBProduto.produto}" 
+                         rowKey="#{produto.id}">
+
+                <p:ajax event="rowSelect" listener="#{MBProduto.onRowSelect}"  />
+
+                <f:facet name="header" >
+                    Relação Geral de Produtos
+                </f:facet>
+                <p:column headerText="Código" sortBy="#{produto.id}">
+                    <h:outputText value="#{produto.id}"/>
+                </p:column>
+                <p:column headerText="Nome" sortBy="#{produto.nome}">
+                    <h:outputText value="#{produto.nome}"/>
+                </p:column>
+                <p:column headerText="Quantidade" sortBy="#{produto.qtde}">
+                    <h:outputText value="#{produto.qtde}"/>
+                </p:column>
+                <p:column headerText="Fornecedor" sortBy="#{produto.fornecedor}">
+                    <h:outputText value="#{produto.fornecedor}"/>
+                </p:column>
+                <p:column headerText="Data Compra" sortBy="#{produto.dtCompra}">
+                    <h:outputText value="#{produto.dtCompra}"/>
+                </p:column>
+                <p:column headerText="Valor da Compra" sortBy="#{produto.valorCompra}">
+                    <h:outputText value="#{produto.valorCompra}"/>
+                </p:column>
+                <p:column headerText="Valor da Venda" sortBy="#{produto.valorVenda}">
+                    <h:outputText value="#{produto.valorVenda}"/>
+                </p:column>
+                <f:facet name="footer" >
+                    <p:commandButton value="Novo" actionListener="#{MBProduto.prepararProduto()}" 
+                                     oncomplete="PF('novoProduto').show()"
+                                     update=":formPnlNovoProduto:pnlProduto" />
+                </f:facet>
+            </p:dataTable>
+        </h:form>
+
+        <p:dialog id="novoProduto" widgetVar="novoProduto"
+                  closable="false"
+                  draggable="true"
+                  resizable="false"
+                  modal="true" appendTo="@(body)"
+                  header="Cadastro de Produto">
+
+            <h:form id="formPnlNovoProduto">
+                <h:panelGrid id="pnlProduto" columns="2">
+                    <p:outputLabel value="Nome" />
+                    <p:inputText size="30" maxlength="30" value="#{MBProduto.produto.nome}" />
+                    <p:outputLabel value="Quantidade" />
+                    <p:inputText size="30" maxlength="30" value="#{MBProduto.produto.qtde}" />
+                    <p:outputLabel value="Fornecedor" />
+                    <p:inputText size="30" maxlength="30" value="#{MBProduto.produto.fornecedor}" />
+                    <p:outputLabel  value="Data da Compra" />
+                    <p:calendar pattern="dd/MM/yyyy" mask="true" navigator="true" readonlyInput="true" maxdate="c+0" yearRange="c-100:c+100" value="#{MBProduto.produto.dtCompra}"/>
+                    <p:outputLabel value="Valor da Compra" />
+                    <p:inputText size="30" maxlength="30" value="#{MBProduto.produto.valorCompra}" />
+                    <p:outputLabel value="Valor da Venda" />
+                    <p:inputText size="30" maxlength="30" value="#{MBProduto.produto.valorVenda}" />
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:commandButton value="Salvar" actionListener="#{MBProduto.saveProduto()}"
+                                     oncomplete="PF('novoProduto').hide();"
+                                     update=":formTbProduto:tbProduto"/>
+                    <p:commandButton value="Cancelar" onclick="PF('novoProduto').hide();"/>
+                </h:panelGrid>
+            </h:form>
+        </p:dialog>
+    </ui:define>>
+</ui:composition>
+
+
+
+
+
+
+
+
